@@ -628,7 +628,7 @@
             $("#send").replaceWith("<em><br>Wait a minute...</em>");
             $.ajax({
             type:'POST',
-            url:'sendmessage.php',
+            url:'/sendmessage.php',
             data:$("#contact").serialize(),
             success:function(data){
             if(data=="true"){
