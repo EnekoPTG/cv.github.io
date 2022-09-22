@@ -113,14 +113,15 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  background: #fff;
   z-index: 1000;
+  background: #fff;
   border-bottom: 1px solid #e3e3e3; }
   .header.active {
     -webkit-box-shadow: 0 5px 10px rgba(37, 37, 37, 0.1);
             box-shadow: 0 5px 10px rgba(37, 37, 37, 0.1);
-    border-bottom-color: transparent; }
-
+    border-bottom-color: transparent; 
+  }
+  
 .point:after {
   content: '.'; }
 
@@ -298,7 +299,7 @@ img {
     bottom: -5px;
     left: 15px; }
     .wave-bg .zigzag svg:first-child polyline {
-      stroke: #efefef; }
+      stroke: #000; }
 
 .section-small-padding .wave-bg .zigzag {
   bottom: 45px; }
@@ -670,7 +671,7 @@ svg.fa-times {
     font-size: 18px; }
 
 .footer {
-  background: #efefef;
+  background: rgb(226, 226, 226);
   padding: 15px 0 15px; }
 
 body {

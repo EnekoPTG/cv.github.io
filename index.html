@@ -55,6 +55,9 @@
                             <li>
                                 <a href="#feedback">Feedback</a>
                             </li>
+                            <li>
+                                <a href="#contact">Contact</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -94,6 +97,9 @@
                 </li>
                 <li>
                     <a href="#feedback">Feedback</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -135,20 +141,16 @@
                             <p>
                                 <span class="span-title">Social</span>
                                 <span class="span-icons">
-                                    <a target="_blank" href="https://www.facebook.com/" class="mdi fonts-icons mdi-facebook"></a>
-                                    <a target="_blank" href="https://twitter.com/" class="mdi fonts-icons mdi-twitter"></a>
-                                    <a target="_blank" href="https://www.instagram.com/" class="mdi fonts-icons mdi-instagram"></a>
-                                    <a target="_blank" href="https://www.linkedin.com/" class="mdi fonts-icons mdi-linkedin"></a>
-                                    <a target="_blank" href="https://www.behance.net/" class="mdi fonts-icons mdi-behance"></a>
-                                    <a target="_blank" href="https://dribbble.com/" class="mdi fonts-icons mdi-dribbble"></a>
-                                    <a target="_blank" href="https://medium.com/" class="mdi fonts-icons mdi-medium"></a>
-                                    <a target="_blank" href="https://github.com/" class="mdi fonts-icons mdi-github-circle"></a>
+                                    <a target="_blank" href="https://github.com/enekoptg" class="mdi fonts-icons mdi-github-circle"></a>
+                                    <a target="_blank" href="https://stepik.org/users/476401764/certificates" class="mdi fonts-icons mdi-book"></a>
+                                    <a target="_blank" href="https://vk.com/enekoptg" class="mdi fonts-icons mdi-vk"></a>
+                                    <a target="_blank" href="https://www.instagram.com/enekoptg" class="mdi fonts-icons mdi-instagram"></a>
                                 </span>
                             </p>
                         </div>
                         <div class="about-btns">
                             <a data-toggle="modal" data-target="#contact-modal" href="#inline" class="modalbox site-btn">Contact me</a>
-                            <a href="./download/example.pdf" class="site-btn gray-btn">Download cv</a>
+                            <a target="_blank" href="https://drive.google.com/file/d/1ot-P5SI8qs7QHKeg2wyShdbsordOj56I/view?usp=sharing" class="site-btn gray-btn">Download cv</a>
                         </div>
                     </div>
                 </div>
@@ -549,9 +551,9 @@
                 </div>
             </div>
         </div>
+        <hr>
     </section>
-    <hr>
-    <div class="content clearfix">
+    <div class="content clearfix" id="contact">
         <div class="post">
         <a href="#inline" class="modalbox site-btn">Contact me</a>
         <div id="inline">
@@ -582,66 +584,67 @@
     <!--Mix It Up-->
     <script src="js/mixitup.min.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/theme.js"></script>
     <!--THEME-->
     <script>
-        function validateEmail(email) {
-            var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return reg.test(email);
-        }
-            $(document).ready(function(){
-            $(".modalbox").fancybox();
-            $("#contact").submit(function(){return false;});
-            $("#send").on("click",function(){
-            var emailval=$("#email").val();
-            var namevl=$("#name").val();
-            var phonevl=$("#phone").val();
-            var msgval=$("#msg").val();
-            var msglen=msgval.length;
-            var mailvalid=validateEmail(emailval);
-            if(mailvalid==false){
-            $("#email").addClass("error");
-            }
-            else if(mailvalid==true){
-            $("#email").removeClass("error");
-            }
-            if(mailvalid==false){
-            $("#name").addClass("error");
-            }
-            else if(mailvalid==true){
-            $("#name").removeClass("error");
-            }
-            if(mailvalid==false){
-            $("#phone").addClass("error");
-            }
-            else if(mailvalid==true){
-            $("#phone").removeClass("error");
-            }
-            if(msglen<4){
-            $("#msg").addClass("error");
-            }
-            else if(msglen>=4){
-            $("#msg").removeClass("error");
-            }
-            if(mailvalid==true&&msglen>=4){
-            // если обе проверки пройдены
-            // сначала мы скрываем кнопку отправки
-            $("#send").replaceWith("<em><br>Wait a minute...</em>");
-            $.ajax({
-            type:'POST',
-            url:'/sendmessage.php',
-            data:$("#contact").serialize(),
-            success:function(data){
-            if(data=="true"){
-                $("#contact").fadeOut("fast",function(){
-                $(this).before("<p><strong>Ваше сообщение отправлено</strong></p>");
-                setTimeout("$.fancybox.close()", 1000);
-            });
-            }
-            }
-            });
-            }
-            });
-        });
-        </script>
+function validateEmail(email) {
+    var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return reg.test(email);
+}
+    $(document).ready(function(){
+    $(".modalbox").fancybox();
+    $("#contact").submit(function(){return false;});
+    $("#send").on("click",function(){
+    var emailval=$("#email").val();
+    var namevl=$("#name").val();
+    var phonevl=$("#phone").val();
+    var msgval=$("#msg").val();
+    var msglen=msgval.length;
+    var mailvalid=validateEmail(emailval);
+    if(mailvalid==false){
+	$("#email").addClass("error");
+    }
+    else if(mailvalid==true){
+	$("#email").removeClass("error");
+    }
+    if(mailvalid==false){
+	$("#name").addClass("error");
+    }
+    else if(mailvalid==true){
+	$("#name").removeClass("error");
+    }
+    if(mailvalid==false){
+	$("#phone").addClass("error");
+    }
+    else if(mailvalid==true){
+	$("#phone").removeClass("error");
+    }
+    if(msglen<4){
+	$("#msg").addClass("error");
+    }
+    else if(msglen>=4){
+	$("#msg").removeClass("error");
+    }
+    if(mailvalid==true&&msglen>=4){
+    // если обе проверки пройдены
+    // сначала мы скрываем кнопку отправки
+    $("#send").replaceWith("<em>отправка...</em>");
+    $.ajax({
+	type:'POST',
+	url:'sendmessage.php',
+	data:$("#contact").serialize(),
+	success:function(data){
+	if(data=="true"){
+	    $("#contact").fadeOut("fast",function(){
+	    $(this).before("<p><strong>Ваше сообщение отправлено</strong></p>");
+	    setTimeout("$.fancybox.close()", 1000);
+	});
+	}
+	}
+	});
+    }
+    });
+});
+</script>
 </body>
 </html>

@@ -33,20 +33,6 @@ jQuery(function($){
         }, 800);
     });
 
-    //init Mix It Up (portfolio)
-    if($('div').is('.portfolio')) {
-        mixitup('.portfolio', {
-            animation: {
-                duration: 400,
-                effectsIn: 'fade translateY(-100%)',
-                effectsOut: 'fade translateY(-100%)'
-            },
-            selectors: {
-                control: '[data-mixitup-control]'
-            }
-        });
-    }
-
     // //init custom select
     // $('select').customSelect();
 
@@ -101,51 +87,4 @@ jQuery(function($){
         });
       });
     };
-    validateForm('.js-modal-form .form-field');
-    validateForm('.js-footer-form .form-field');
-  //  validateForm('.form-wrapper .form-field');
-
-  var modalForm = document.querySelector('.js-modal-form');
-  var footerForm = document.querySelector('.js-footer-form');
-  var modalFormName = '.js-modal-form';
-  var footerFormName = '.js-footer-form';
-
-  modalForm.addEventListener('submit', function(e){
-    submitForm(e, modalFormName);
-  });
-
-  footerForm.addEventListener('submit', function(e){
-    submitForm(e, footerFormName);
-  });
-
-  function submitForm(e, formName){
-    e.preventDefault();
-    var name = $(formName + ' .js-field-name').val();
-    var email = $(formName + ' .js-field-email').val();
-    var message = $(formName + ' .js-field-message').val();
-
-    var formData = {
-        name: name,
-        email: email,
-        message: message
-    };
-
-    $.ajax({
-      type: "POST",
-      url: '/mail.php',
-      data: formData,
-      success: function() {
-        $('#contact-modal').modal('hide');
-        $('#thanks-modal').modal('show');
-      },
-      error: function() {
-        console.log('error');
-        $('#contact-modal').modal('hide');
-        // $('#error-modal').modal('show');
-        $('#thanks-modal').modal('show');
-
-      }
-    });
-  }
-
 });
