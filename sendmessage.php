@@ -1,5 +1,5 @@
 <?php
-$sendto = "enekoptg@gmail.com";//! Замените на свой почтовый ящик
+$sendto = "example@mail";//! Замените на свой почтовый ящик
 $usermail = $_POST['email'];
 $username = $_POST['name'];
 $userphone = $_POST['phone'];

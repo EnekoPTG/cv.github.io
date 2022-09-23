@@ -1,0 +1,1 @@
+favicon was integrate on site by URL
